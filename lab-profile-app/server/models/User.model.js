@@ -1,11 +1,13 @@
-const { Schema, model } = require("mongoose");
+//const { Schema, model } = require("mongoose");
+ const mongoose = require('mongoose');
+
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
-const userSchema = new Schema(
+const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      // unique: true -> Ideally, should be unique, but its up to you
+      unique: true
     },
     password: String,
     campus: {type:String, enum:["Madrid", "Barcelona", "Miami", "Paris", "Berlin", "Amsterdam", "Mexico", "Sao Paulo", "Lisbon"]},
@@ -18,6 +20,6 @@ const userSchema = new Schema(
   }
 );
 
-const User = model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;

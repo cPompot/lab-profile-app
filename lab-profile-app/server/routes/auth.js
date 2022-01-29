@@ -23,8 +23,13 @@ router.post('/signup', (req, res, next) => {
                 res.status(403).json({message: 'User already exists'});
             } else {
                 const hashPassword = bcryptjs.hashSync(password, salt);
-                User.create(username, hashPassword)
-                    .then(userFromDb => {
+                const userCreated = new User({
+                    username: username,
+                    password: hashPassword
+                });
+                userCreated.save()
+                    .then(() => {
+                        req.session.currentUser = userCreated;
                         res.status(201).json({message: 'User correctly created'})
                     })
                     .catch(error => {
