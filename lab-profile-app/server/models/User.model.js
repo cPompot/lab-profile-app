@@ -10,8 +10,8 @@ const userSchema = new mongoose.Schema(
       unique: true
     },
     password: String,
-    campus: {type:String, enum:["Madrid", "Barcelona", "Miami", "Paris", "Berlin", "Amsterdam", "Mexico", "Sao Paulo", "Lisbon"]},
-    course: {type:String, enum:["Web Dev", "UX/UI", "Data Analytics"]}, 
+    campus: {type: String, enum:["Madrid", "Barcelona", "Miami", "Paris", "Berlin", "Amsterdam", "Mexico", "Sao Paulo", "Lisbon",]},
+    course: {type: String, enum:["Web Dev", "UX/UI", "Data Analytics"]}, 
     image: String
   },
   {
